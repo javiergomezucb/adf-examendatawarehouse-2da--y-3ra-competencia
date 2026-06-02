@@ -1,0 +1,32 @@
+{
+	"name": "silver_tipos_movimiento",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adw_ffaa_destino",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "silver"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id_tipo",
+				"type": "varchar"
+			},
+			{
+				"name": "nombre",
+				"type": "varchar"
+			},
+			{
+				"name": "descripcion",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "silver",
+			"table": "tipos_movimiento"
+		}
+	}
+}

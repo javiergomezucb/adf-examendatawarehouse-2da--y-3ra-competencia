@@ -1,61 +1,59 @@
 {
-	"name": "bronze_movimientos_personal",
+	"name": "silver_movimiento_personal",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "adw_ffaa_origen",
+			"referenceName": "adw_ffaa_destino",
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "bronze"
+			"name": "silver"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
 			{
 				"name": "id_movimiento",
-				"type": "int",
-				"precision": 10
+				"type": "varchar"
 			},
 			{
 				"name": "id_efectivo",
-				"type": "int",
-				"precision": 10
+				"type": "varchar"
 			},
 			{
 				"name": "id_unidad_destino",
-				"type": "int",
-				"precision": 10
+				"type": "varchar"
 			},
 			{
 				"name": "id_rango",
-				"type": "int",
-				"precision": 10
+				"type": "varchar"
 			},
 			{
 				"name": "id_tipo",
+				"type": "varchar"
+			},
+			{
+				"name": "fecha_movimiento",
+				"type": "date"
+			},
+			{
+				"name": "antiguedad_anios",
 				"type": "int",
 				"precision": 10
 			},
 			{
-				"name": "fecha_movimiento",
-				"type": "varchar"
-			},
-			{
-				"name": "antiguedad_anios",
-				"type": "varchar"
-			},
-			{
 				"name": "salario_mensual",
-				"type": "varchar"
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
 			},
 			{
 				"name": "observaciones",
-				"type": "nvarchar"
+				"type": "varchar"
 			}
 		],
 		"typeProperties": {
-			"schema": "oltp",
-			"table": "tbl_estructura_organizacional"
+			"schema": "silver",
+			"table": "movimientos_personal"
 		}
 	}
 }

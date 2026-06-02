@@ -1,0 +1,70 @@
+{
+	"name": "silver_efectivos",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adw_ffaa_destino",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "silver"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id_efectivo",
+				"type": "varchar"
+			},
+			{
+				"name": "id_especialidad",
+				"type": "varchar"
+			},
+			{
+				"name": "id_unidad_actual",
+				"type": "varchar"
+			},
+			{
+				"name": "id_rango_actual",
+				"type": "varchar"
+			},
+			{
+				"name": "nombre",
+				"type": "varchar"
+			},
+			{
+				"name": "ci",
+				"type": "varchar"
+			},
+			{
+				"name": "fecha_nacimiento",
+				"type": "date"
+			},
+			{
+				"name": "genero",
+				"type": "varchar"
+			},
+			{
+				"name": "departamento_origen",
+				"type": "varchar"
+			},
+			{
+				"name": "fecha_ingreso",
+				"type": "date"
+			},
+			{
+				"name": "estado",
+				"type": "varchar"
+			},
+			{
+				"name": "salario_mensual",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			}
+		],
+		"typeProperties": {
+			"schema": "silver",
+			"table": "efectivos"
+		}
+	}
+}

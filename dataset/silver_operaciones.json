@@ -12,51 +12,76 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "id_efectivo",
+				"name": "id_operacion",
 				"type": "varchar"
 			},
 			{
-				"name": "id_especialidad",
+				"name": "id_tipo",
 				"type": "varchar"
 			},
 			{
-				"name": "id_unidad_actual",
+				"name": "id_unidad_resp",
 				"type": "varchar"
 			},
 			{
-				"name": "id_rango_actual",
+				"name": "id_zona",
 				"type": "varchar"
 			},
 			{
-				"name": "nombre",
+				"name": "nombre_operacion",
 				"type": "varchar"
 			},
 			{
-				"name": "ci",
+				"name": "fecha_inicio",
+				"type": "date"
+			},
+			{
+				"name": "fecha_fin",
+				"type": "date"
+			},
+			{
+				"name": "efectivos_desplegados",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "vehiculos_utilizados",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "duracion_dias",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "costo_operacion",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "resultado",
 				"type": "varchar"
 			},
 			{
-				"name": "fecha_nacimiento",
-				"type": "varchar"
+				"name": "detenidos",
+				"type": "int",
+				"precision": 10
 			},
 			{
-				"name": "genero",
-				"type": "varchar"
+				"name": "area_km2",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
 			},
 			{
-				"name": "departamento_origen",
-				"type": "varchar"
+				"name": "incidentes",
+				"type": "int",
+				"precision": 10
 			},
 			{
-				"name": "fecha_ingreso",
-				"type": "varchar"
-			},
-			{
-				"name": "estado",
-				"type": "varchar"
-			},
-			{
-				"name": "salario_mensual",
+				"name": "observaciones",
 				"type": "varchar"
 			}
 		],

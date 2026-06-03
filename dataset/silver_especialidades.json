@@ -13,11 +13,12 @@
 		"schema": [
 			{
 				"name": "id_especialidad",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "nombre",
-				"type": "varchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "area",

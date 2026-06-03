@@ -13,11 +13,13 @@
 		"schema": [
 			{
 				"name": "id_estructura",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "id_padre",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "nivel",
@@ -25,7 +27,7 @@
 			},
 			{
 				"name": "nombre",
-				"type": "varchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "sigla",
@@ -37,7 +39,7 @@
 			},
 			{
 				"name": "cobertura_departamentos",
-				"type": "varchar"
+				"type": "nvarchar"
 			}
 		],
 		"typeProperties": {

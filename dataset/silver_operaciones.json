@@ -13,76 +13,71 @@
 		"schema": [
 			{
 				"name": "id_operacion",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "id_tipo",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "id_unidad_resp",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "id_zona",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "nombre_operacion",
-				"type": "varchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "fecha_inicio",
-				"type": "date"
+				"type": "varchar"
 			},
 			{
 				"name": "fecha_fin",
-				"type": "date"
+				"type": "varchar"
 			},
 			{
 				"name": "efectivos_desplegados",
-				"type": "int",
-				"precision": 10
+				"type": "varchar"
 			},
 			{
 				"name": "vehiculos_utilizados",
-				"type": "int",
-				"precision": 10
+				"type": "varchar"
 			},
 			{
 				"name": "duracion_dias",
-				"type": "int",
-				"precision": 10
+				"type": "varchar"
 			},
 			{
 				"name": "costo_operacion",
-				"type": "decimal",
-				"precision": 18,
-				"scale": 2
+				"type": "varchar"
 			},
 			{
 				"name": "resultado",
-				"type": "varchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "detenidos",
-				"type": "int",
-				"precision": 10
+				"type": "varchar"
 			},
 			{
 				"name": "area_km2",
-				"type": "decimal",
-				"precision": 18,
-				"scale": 2
+				"type": "varchar"
 			},
 			{
 				"name": "incidentes",
-				"type": "int",
-				"precision": 10
+				"type": "nvarchar"
 			},
 			{
 				"name": "observaciones",
-				"type": "varchar"
+				"type": "nvarchar"
 			}
 		],
 		"typeProperties": {

@@ -13,23 +13,27 @@
 		"schema": [
 			{
 				"name": "id_efectivo",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "id_especialidad",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "id_unidad_actual",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "id_rango_actual",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "nombre",
-				"type": "varchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "ci",
@@ -37,7 +41,7 @@
 			},
 			{
 				"name": "fecha_nacimiento",
-				"type": "date"
+				"type": "varchar"
 			},
 			{
 				"name": "genero",
@@ -45,11 +49,11 @@
 			},
 			{
 				"name": "departamento_origen",
-				"type": "varchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "fecha_ingreso",
-				"type": "date"
+				"type": "varchar"
 			},
 			{
 				"name": "estado",
@@ -57,9 +61,7 @@
 			},
 			{
 				"name": "salario_mensual",
-				"type": "decimal",
-				"precision": 18,
-				"scale": 2
+				"type": "varchar"
 			}
 		],
 		"typeProperties": {

@@ -13,15 +13,16 @@
 		"schema": [
 			{
 				"name": "id_rango",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "nombre",
-				"type": "varchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "categoria",
-				"type": "varchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "nivel_jerarquico",

@@ -13,7 +13,8 @@
 		"schema": [
 			{
 				"name": "id_tipo",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "nombre",
@@ -21,7 +22,7 @@
 			},
 			{
 				"name": "descripcion",
-				"type": "varchar"
+				"type": "nvarchar"
 			}
 		],
 		"typeProperties": {

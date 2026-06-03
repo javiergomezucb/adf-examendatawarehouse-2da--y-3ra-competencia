@@ -13,26 +13,27 @@
 		"schema": [
 			{
 				"name": "id_zona",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "nombre",
-				"type": "varchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "departamento",
-				"type": "varchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "frontera_con",
-				"type": "varchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "tipo_terreno",
 				"type": "varchar"
 			},
 			{
-				"name": "altitud_msmn",
+				"name": "altitud_msnm",
 				"type": "int",
 				"precision": 10
 			},
@@ -42,7 +43,7 @@
 			},
 			{
 				"name": "acceso_carretero",
-				"type": "varchar"
+				"type": "bit"
 			}
 		],
 		"typeProperties": {

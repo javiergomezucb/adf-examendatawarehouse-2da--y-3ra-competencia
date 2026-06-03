@@ -13,15 +13,17 @@
 		"schema": [
 			{
 				"name": "id_unidad",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "id_brigada",
-				"type": "varchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "nombre",
-				"type": "varchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "codigo",
@@ -29,11 +31,11 @@
 			},
 			{
 				"name": "ciudad",
-				"type": "varchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "departamento",
-				"type": "varchar"
+				"type": "nvarchar"
 			},
 			{
 				"name": "tipo_cuartel",

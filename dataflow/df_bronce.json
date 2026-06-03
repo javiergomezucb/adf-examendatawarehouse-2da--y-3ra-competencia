@@ -147,38 +147,7 @@
 					"name": "sink10"
 				}
 			],
-			"transformations": [
-				{
-					"name": "derivedColumn1"
-				},
-				{
-					"name": "derivedColumn2"
-				},
-				{
-					"name": "derivedColumn3"
-				},
-				{
-					"name": "derivedColumn4"
-				},
-				{
-					"name": "derivedColumn5"
-				},
-				{
-					"name": "derivedColumn6"
-				},
-				{
-					"name": "derivedColumn7"
-				},
-				{
-					"name": "derivedColumn8"
-				},
-				{
-					"name": "derivedColumn9"
-				},
-				{
-					"name": "derivedColumn10"
-				}
-			],
+			"transformations": [],
 			"scriptLines": [
 				"source(output(",
 				"          id_efectivo as integer,",
@@ -313,39 +282,7 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> source10",
-				"source1 derive(nombre = trim(regexReplace(regexReplace(replace(nombre, '\\t', ' '), '#', ''), ' +', ' ')),",
-				"          genero = iif(lower(trim(genero)) == 'masculino' || lower(trim(genero)) == 'm', 'Masculino', iif(lower(trim(genero)) == 'femenino' || lower(trim(genero)) == 'f', 'Femenino', 'No Especificado')),",
-				"          estado = iif(locate('act', lower(trim(estado))) > 0, 'Activo', iif(locate('baj', lower(trim(estado))) > 0 || locate('dado', lower(trim(estado))) > 0, 'Baja', iif(locate('r', lower(trim(estado))) > 0, 'Reserva', 'Activo'))),",
-				"          salario_mensual = regexReplace(replace(replace(replace(upper(trim(salario_mensual)), 'BS', ''), '.', ''), ',', '.'), ' ', ''),",
-				"          fecha_nacimiento = iif(regexMatch(trim(fecha_nacimiento), '^\\\\d{8}$'), concat(substring(trim(fecha_nacimiento), 7, 2), '-', substring(trim(fecha_nacimiento), 5, 2), '-', substring(trim(fecha_nacimiento), 1, 4)), iif(regexMatch(trim(fecha_nacimiento), '^\\\\d{4}/\\\\d{2}/\\\\d{2}$'), concat(substring(trim(fecha_nacimiento), 9, 2), '-', substring(trim(fecha_nacimiento), 6, 2), '-', substring(trim(fecha_nacimiento), 1, 4)), replace(trim(fecha_nacimiento), '/', '-'))),",
-				"          fecha_ingreso = iif(regexMatch(trim(fecha_nacimiento), '^\\\\d{8}$'), concat(substring(trim(fecha_nacimiento), 7, 2), '-', substring(trim(fecha_nacimiento), 5, 2), '-', substring(trim(fecha_nacimiento), 1, 4)), iif(regexMatch(trim(fecha_nacimiento), '^\\\\d{4}/\\\\d{2}/\\\\d{2}$'), concat(substring(trim(fecha_nacimiento), 9, 2), '-', substring(trim(fecha_nacimiento), 6, 2), '-', substring(trim(fecha_nacimiento), 1, 4)), replace(trim(fecha_nacimiento), '/', '-'))),",
-				"          departamento_origen = iif(locate('p', lower(trim(departamento_origen))) > 0, 'La Paz', iif(locate('c', lower(trim(departamento_origen))) > 0, 'Cochabamba', iif(locate('o', lower(trim(departamento_origen))) > 0, 'Oruro', iif(locate('t', lower(trim(departamento_origen))) > 0, 'Tarija', trim(departamento_origen))))),",
-				"          ci = trim(upper(regexReplace(replace(replace(replace(ci, '.', ''), 'C.I.', ''), 'CI:', ''), ' ', '')))) ~> derivedColumn1",
-				"source2 derive(nombre = trim(regexReplace(regexReplace(replace(nombre, '\\t', ' '), '#', ''), ' +', ' '))) ~> derivedColumn2",
-				"source3 derive(nivel = trim(nivel)) ~> derivedColumn3",
-				"source4 derive(fecha_movimiento = iif(regexMatch(trim(fecha_movimiento), '^\\\\d{4}/\\\\d{2}/\\\\d{2}$'), concat(substring(trim(fecha_movimiento), 9, 2), '-', substring(trim(fecha_movimiento), 6, 2), '-', substring(trim(fecha_movimiento), 1, 4)), replace(trim(fecha_movimiento), '/', '-')),",
-				"          antiguedad_anios = iif(locate('cero', lower(antiguedad_anios)) > 0, '0', iif(locate('siete', lower(antiguedad_anios)) > 0, '7', iif(locate('once', lower(antiguedad_anios)) > 0, '11', iif(locate('doce', lower(antiguedad_anios)) > 0, '12', iif(locate('trece', lower(antiguedad_anios)) > 0, '13', iif(locate('quince', lower(antiguedad_anios)) > 0, '15', iif(locate('veinte', lower(antiguedad_anios)) > 0, '20', regexReplace(regexReplace(regexReplace(replace(trim(antiguedad_anios), ',', '.'), '[^0-9.]', ''), '^\\\\.', ''), '\\\\.$', '')))))))),",
-				"          salario_mensual = regexReplace(replace(replace(replace(upper(trim(salario_mensual)), 'BS', ''), '.', ''), ',', '.'), ' ', ''),",
-				"          observaciones = iif(isNull(observaciones), 'Sin observaciones', trim(replace(replace(observaciones, '\\n', ' '), '—', '-')))) ~> derivedColumn4",
-				"source5 derive(nombre_operacion = trim (nombre_operacion),",
-				"          id_operacion = trim(toString(byName('id_operacion'))),",
-				"          fecha_inicio = trim (fecha_inicio),",
-				"          fecha_fin = trim(fecha_fin),",
-				"          efectivos_desplegados = iif(locate('trescientos', lower(efectivos_desplegados)) > 0, '300', iif(locate('doscientos', lower(efectivos_desplegados)) > 0, '200', iif(locate('cien', lower(efectivos_desplegados)) > 0, '100', regexReplace(regexReplace(regexReplace(trim(efectivos_desplegados), '[^0-9.]', ''), '^\\\\.', ''), '\\\\.$', '')))),",
-				"          vehiculos_utilizados = iif(locate('veinte', lower(vehiculos_utilizados)) > 0, '20', iif(locate('nueve', lower(vehiculos_utilizados)) > 0, '9', regexReplace(regexReplace(regexReplace(trim(vehiculos_utilizados), '[^0-9.]', ''), '^\\\\.', ''), '\\\\.$', ''))),",
-				"          duracion_dias = iif(locate('siete', lower(duracion_dias)) > 0, '7', regexReplace(regexReplace(regexReplace(trim(duracion_dias), '[^0-9.]', ''), '^\\\\.', ''), '\\\\.$', '')),",
-				"          costo_operacion = replace(regexReplace(upper(trim(costo_operacion)), '[^0-9.,]', ''), ',', ''),",
-				"          resultado = iif(isNull(resultado) || trim(resultado) == '-' || trim(resultado) == 'S/N', 'No reportado', trim(resultado)),",
-				"          detenidos = iif(isNull(detenidos) || locate('sin', lower(detenidos)) > 0 || locate('ningun', lower(detenidos)) > 0 || locate('cero', lower(detenidos)) > 0 || trim(detenidos) == '-', '0', regexReplace(trim(detenidos), '[^0-9]', '')),",
-				"          area_km2 = replace(regexReplace(upper(trim(area_km2)), '[^0-9.,]', ''), ',', ''),",
-				"          incidentes = iif(isNull(incidentes) || locate('cero', lower(incidentes)) > 0 || trim(incidentes) == '-', '0', iif(locate('uno', lower(incidentes)) > 0, '1', regexReplace(trim(incidentes), '[^0-9]', ''))),",
-				"          observaciones = iif(isNull(observaciones), 'Sin observaciones', trim(replace(replace(observaciones, '\\n', ' '), '—', '-')))) ~> derivedColumn5",
-				"source6 derive(nombre = trim (nombre)) ~> derivedColumn6",
-				"source7 derive(nombre = trim(nombre)) ~> derivedColumn7",
-				"source8 derive(nombre = trim (nombre)) ~> derivedColumn8",
-				"source9 derive(nombre = trim (nombre)) ~> derivedColumn9",
-				"source10 derive(nombre = trim (nombre)) ~> derivedColumn10",
-				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"source1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id_efectivo as string,",
@@ -384,7 +321,7 @@
 				"          estado,",
 				"          salario_mensual",
 				"     )) ~> sink1",
-				"derivedColumn2 sink(allowSchemaDrift: true,",
+				"source2 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id_especialidad as string,",
@@ -405,7 +342,7 @@
 				"          nombre,",
 				"          area",
 				"     )) ~> sink2",
-				"derivedColumn3 sink(allowSchemaDrift: true,",
+				"source3 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id_estructura as string,",
@@ -434,7 +371,7 @@
 				"          tipo,",
 				"          cobertura_departamentos",
 				"     )) ~> sink3",
-				"derivedColumn4 sink(allowSchemaDrift: true,",
+				"source4 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id_movimiento as string,",
@@ -467,7 +404,7 @@
 				"          salario_mensual,",
 				"          observaciones",
 				"     )) ~> sink4",
-				"derivedColumn5 sink(allowSchemaDrift: true,",
+				"source5 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id_operacion as string,",
@@ -514,7 +451,7 @@
 				"          incidentes,",
 				"          observaciones",
 				"     )) ~> sink5",
-				"derivedColumn6 sink(allowSchemaDrift: true,",
+				"source6 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id_rango as string,",
@@ -539,7 +476,7 @@
 				"          nivel_jerarquico,",
 				"          abreviatura",
 				"     )) ~> sink6",
-				"derivedColumn7 sink(allowSchemaDrift: true,",
+				"source7 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id_tipo as string,",
@@ -560,7 +497,7 @@
 				"          nombre,",
 				"          descripcion",
 				"     )) ~> sink7",
-				"derivedColumn8 sink(allowSchemaDrift: true,",
+				"source8 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id_tipo as string,",
@@ -581,7 +518,7 @@
 				"          nombre,",
 				"          descripcion = categoria",
 				"     )) ~> sink8",
-				"derivedColumn9 sink(allowSchemaDrift: true,",
+				"source9 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id_unidad as string,",
@@ -610,7 +547,7 @@
 				"          departamento,",
 				"          tipo_cuartel",
 				"     )) ~> sink9",
-				"derivedColumn10 sink(allowSchemaDrift: true,",
+				"source10 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id_zona as string,",

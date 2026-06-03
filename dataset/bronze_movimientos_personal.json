@@ -55,7 +55,7 @@
 		],
 		"typeProperties": {
 			"schema": "oltp",
-			"table": "tbl_estructura_organizacional"
+			"table": "tbl_movimientos_personal"
 		}
 	}
 }

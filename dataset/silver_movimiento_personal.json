@@ -41,7 +41,7 @@
 				"type": "varchar"
 			},
 			{
-				"name": "antiguedad_arios",
+				"name": "antiguedad_anios",
 				"type": "varchar"
 			},
 			{

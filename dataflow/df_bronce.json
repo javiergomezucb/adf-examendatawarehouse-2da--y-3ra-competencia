@@ -99,7 +99,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "silver_movimiento_personal",
+						"referenceName": "bronze_movimientos_personal",
 						"type": "DatasetReference"
 					},
 					"name": "sink4"
@@ -380,7 +380,7 @@
 				"          id_rango as integer,",
 				"          id_tipo as integer,",
 				"          fecha_movimiento as string,",
-				"          antiguedad_arios as string,",
+				"          antiguedad_anios as string,",
 				"          salario_mensual as string,",
 				"          observaciones as string",
 				"     ),",
@@ -400,7 +400,7 @@
 				"          id_rango,",
 				"          id_tipo,",
 				"          fecha_movimiento,",
-				"          antiguedad_arios = antiguedad_anios,",
+				"          antiguedad_anios,",
 				"          salario_mensual,",
 				"          observaciones",
 				"     )) ~> sink4",

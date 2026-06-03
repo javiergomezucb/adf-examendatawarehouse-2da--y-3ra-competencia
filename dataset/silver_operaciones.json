@@ -13,8 +13,7 @@
 		"schema": [
 			{
 				"name": "id_operacion",
-				"type": "int",
-				"precision": 10
+				"type": "varchar"
 			},
 			{
 				"name": "id_tipo",

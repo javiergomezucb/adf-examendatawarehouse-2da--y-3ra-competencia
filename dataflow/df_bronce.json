@@ -78,70 +78,70 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "bronze_efectivos",
+						"referenceName": "silver_efectivos",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
 				},
 				{
 					"dataset": {
-						"referenceName": "bronze_especialidades",
+						"referenceName": "silver_especialidades",
 						"type": "DatasetReference"
 					},
 					"name": "sink2"
 				},
 				{
 					"dataset": {
-						"referenceName": "bronze_estructura_organizacional",
+						"referenceName": "silver_estructura_organizacional",
 						"type": "DatasetReference"
 					},
 					"name": "sink3"
 				},
 				{
 					"dataset": {
-						"referenceName": "bronze_movimientos_personal",
+						"referenceName": "silver_movimiento_personal",
 						"type": "DatasetReference"
 					},
 					"name": "sink4"
 				},
 				{
 					"dataset": {
-						"referenceName": "bronze_operaciones",
+						"referenceName": "silver_operaciones",
 						"type": "DatasetReference"
 					},
 					"name": "sink5"
 				},
 				{
 					"dataset": {
-						"referenceName": "bronze_rangos",
+						"referenceName": "silver_rangos",
 						"type": "DatasetReference"
 					},
 					"name": "sink6"
 				},
 				{
 					"dataset": {
-						"referenceName": "bronze_tipos_movimiento",
+						"referenceName": "silver_tipos_movimiento",
 						"type": "DatasetReference"
 					},
 					"name": "sink7"
 				},
 				{
 					"dataset": {
-						"referenceName": "bronze_tipos_operacion",
+						"referenceName": "silver_tipos_movimiento",
 						"type": "DatasetReference"
 					},
 					"name": "sink8"
 				},
 				{
 					"dataset": {
-						"referenceName": "bronze_unidades",
+						"referenceName": "silver_unidades",
 						"type": "DatasetReference"
 					},
 					"name": "sink9"
 				},
 				{
 					"dataset": {
-						"referenceName": "bronze_zonas",
+						"referenceName": "silver_zonas",
 						"type": "DatasetReference"
 					},
 					"name": "sink10"
@@ -348,18 +348,18 @@
 				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
-				"          id_efectivo as integer,",
-				"          id_especialidad as integer,",
-				"          id_unidad_actual as integer,",
-				"          id_rango_actual as integer,",
+				"          id_efectivo as string,",
+				"          id_especialidad as string,",
+				"          id_unidad_actual as string,",
+				"          id_rango_actual as string,",
 				"          nombre as string,",
 				"          ci as string,",
-				"          fecha_nacimiento as string,",
+				"          fecha_nacimiento as date,",
 				"          genero as string,",
 				"          departamento_origen as string,",
-				"          fecha_ingreso as string,",
+				"          fecha_ingreso as date,",
 				"          estado as string,",
-				"          salario_mensual as string",
+				"          salario_mensual as decimal(18,2)",
 				"     ),",
 				"     deletable:false,",
 				"     insertable:true,",
@@ -386,7 +386,7 @@
 				"derivedColumn2 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
-				"          id_especialidad as integer,",
+				"          id_especialidad as string,",
 				"          nombre as string,",
 				"          area as string",
 				"     ),",
@@ -401,8 +401,8 @@
 				"derivedColumn3 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
-				"          id_estructura as integer,",
-				"          id_padre as integer,",
+				"          id_estructura as string,",
+				"          id_padre as string,",
 				"          nivel as string,",
 				"          nombre as string,",
 				"          sigla as string,",
@@ -420,14 +420,14 @@
 				"derivedColumn4 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
-				"          id_movimiento as integer,",
-				"          id_efectivo as integer,",
-				"          id_unidad_destino as integer,",
-				"          id_rango as integer,",
-				"          id_tipo as integer,",
-				"          fecha_movimiento as string,",
-				"          antiguedad_anios as string,",
-				"          salario_mensual as string,",
+				"          id_movimiento as string,",
+				"          id_efectivo as string,",
+				"          id_unidad_destino as string,",
+				"          id_rango as string,",
+				"          id_tipo as string,",
+				"          fecha_movimiento as date,",
+				"          antiguedad_anios as integer,",
+				"          salario_mensual as decimal(18,2),",
 				"          observaciones as string",
 				"     ),",
 				"     deletable:false,",
@@ -441,22 +441,18 @@
 				"derivedColumn5 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
-				"          id_operacion as integer,",
-				"          id_tipo as integer,",
-				"          id_unidad_resp as integer,",
-				"          id_zona as integer,",
-				"          nombre_operacion as string,",
-				"          fecha_inicio as string,",
-				"          fecha_fin as string,",
-				"          efectivos_desplegados as string,",
-				"          vehiculos_utilizados as string,",
-				"          duracion_dias as string,",
-				"          costo_operacion as string,",
-				"          resultado as string,",
-				"          detenidos as string,",
-				"          area_km2 as string,",
-				"          incidentes as string,",
-				"          observaciones as string",
+				"          id_efectivo as string,",
+				"          id_especialidad as string,",
+				"          id_unidad_actual as string,",
+				"          id_rango_actual as string,",
+				"          nombre as string,",
+				"          ci as string,",
+				"          fecha_nacimiento as string,",
+				"          genero as string,",
+				"          departamento_origen as string,",
+				"          fecha_ingreso as string,",
+				"          estado as string,",
+				"          salario_mensual as string",
 				"     ),",
 				"     deletable:false,",
 				"     insertable:true,",
@@ -469,7 +465,7 @@
 				"derivedColumn6 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
-				"          id_rango as integer,",
+				"          id_rango as string,",
 				"          nombre as string,",
 				"          categoria as string,",
 				"          nivel_jerarquico as integer,",
@@ -486,7 +482,7 @@
 				"derivedColumn7 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
-				"          id_tipo as integer,",
+				"          id_tipo as string,",
 				"          nombre as string,",
 				"          descripcion as string",
 				"     ),",
@@ -501,9 +497,9 @@
 				"derivedColumn8 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
-				"          id_tipo as integer,",
+				"          id_tipo as string,",
 				"          nombre as string,",
-				"          categoria as string",
+				"          descripcion as string",
 				"     ),",
 				"     deletable:false,",
 				"     insertable:true,",
@@ -516,8 +512,8 @@
 				"derivedColumn9 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
-				"          id_unidad as integer,",
-				"          id_brigada as integer,",
+				"          id_unidad as string,",
+				"          id_brigada as string,",
 				"          nombre as string,",
 				"          codigo as string,",
 				"          ciudad as string,",
@@ -535,14 +531,14 @@
 				"derivedColumn10 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
-				"          id_zona as integer,",
+				"          id_zona as string,",
 				"          nombre as string,",
 				"          departamento as string,",
 				"          frontera_con as string,",
 				"          tipo_terreno as string,",
-				"          altitud_msnm as integer,",
+				"          altitud_msmn as integer,",
 				"          nivel_riesgo as string,",
-				"          acceso_carretero as boolean",
+				"          acceso_carretero as string",
 				"     ),",
 				"     deletable:false,",
 				"     insertable:true,",

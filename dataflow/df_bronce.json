@@ -99,7 +99,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "bronze_movimientos_personal",
+						"referenceName": "silver_movimiento_personal",
 						"type": "DatasetReference"
 					},
 					"name": "sink4"

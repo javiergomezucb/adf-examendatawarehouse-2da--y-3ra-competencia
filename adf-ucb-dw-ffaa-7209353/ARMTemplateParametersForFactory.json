@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-ucb-dw-ffaa-7209353"
+		},
+		"adw_ffaa_destino_password": {
+			"value": ""
+		},
+		"adw_ffaa_origen_password": {
+			"value": ""
+		},
+		"adw_ffaa_destino_properties_typeProperties_server": {
+			"value": "sql-ucb-ffaa-7209353.database.windows.net"
+		},
+		"adw_ffaa_destino_properties_typeProperties_database": {
+			"value": "dw_ffaa"
+		},
+		"adw_ffaa_destino_properties_typeProperties_userName": {
+			"value": "Javi"
+		},
+		"adw_ffaa_origen_properties_typeProperties_server": {
+			"value": "server02-fuerzas-armadas-bolivia.database.windows.net"
+		},
+		"adw_ffaa_origen_properties_typeProperties_database": {
+			"value": "erp-fuerzas-armadas-bolivia-2"
+		},
+		"adw_ffaa_origen_properties_typeProperties_userName": {
+			"value": "userSisGer"
+		}
+	}
+}

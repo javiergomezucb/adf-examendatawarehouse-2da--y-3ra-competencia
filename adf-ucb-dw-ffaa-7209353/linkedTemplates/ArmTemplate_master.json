@@ -1,0 +1,118 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Nombre de instancia de Data Factory",
+			"defaultValue": "adf-ucb-dw-ffaa-7209353"
+		},
+		"adw_ffaa_destino_password": {
+			"type": "secureString",
+			"metadata": "Cadena protegida para \"password\"de \"adw_ffaa_destino\""
+		},
+		"adw_ffaa_origen_password": {
+			"type": "secureString",
+			"metadata": "Cadena protegida para \"password\"de \"adw_ffaa_origen\""
+		},
+		"adw_ffaa_destino_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sql-ucb-ffaa-7209353.database.windows.net"
+		},
+		"adw_ffaa_destino_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "dw_ffaa"
+		},
+		"adw_ffaa_destino_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Javi"
+		},
+		"adw_ffaa_origen_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "server02-fuerzas-armadas-bolivia.database.windows.net"
+		},
+		"adw_ffaa_origen_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "erp-fuerzas-armadas-bolivia-2"
+		},
+		"adw_ffaa_origen_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "userSisGer"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI de la cuenta de almacenamiento que contiene las plantillas de ARM vinculadas."
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Token de SAS para la cuenta de almacenamiento que contiene las plantillas de ARM vinculadas"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-ucb-dw-ffaa-7209353_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"adw_ffaa_destino_password": {
+						"value": "[parameters('adw_ffaa_destino_password')]"
+					},
+					"adw_ffaa_origen_password": {
+						"value": "[parameters('adw_ffaa_origen_password')]"
+					},
+					"adw_ffaa_destino_properties_typeProperties_server": {
+						"value": "[parameters('adw_ffaa_destino_properties_typeProperties_server')]"
+					},
+					"adw_ffaa_destino_properties_typeProperties_database": {
+						"value": "[parameters('adw_ffaa_destino_properties_typeProperties_database')]"
+					},
+					"adw_ffaa_destino_properties_typeProperties_userName": {
+						"value": "[parameters('adw_ffaa_destino_properties_typeProperties_userName')]"
+					},
+					"adw_ffaa_origen_properties_typeProperties_server": {
+						"value": "[parameters('adw_ffaa_origen_properties_typeProperties_server')]"
+					},
+					"adw_ffaa_origen_properties_typeProperties_database": {
+						"value": "[parameters('adw_ffaa_origen_properties_typeProperties_database')]"
+					},
+					"adw_ffaa_origen_properties_typeProperties_userName": {
+						"value": "[parameters('adw_ffaa_origen_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adf-ucb-dw-ffaa-7209353_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf-ucb-dw-ffaa-7209353_ArmTemplate_0')]"
+			]
+		}
+	]
+}
